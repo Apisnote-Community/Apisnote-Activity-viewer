@@ -1,5 +1,5 @@
 # Apisnote-Activity-viewer
-Apisnote Acitivity viewer is a tool to visualize Apisnote Activity by getting csv data from Apisnote. The user can see active worksheet at the moment you choose.
+Apisnote-Acitivity-viewer is a tool to visualize Apisnote Activity (Frequency of Acitivity at each sheet) by getting csv data from Apisnote. The user can see active worksheet at the moment you choose.
 Latest version is aav4. 
 [File Summary]
   aav4.exe   :Main exe File
