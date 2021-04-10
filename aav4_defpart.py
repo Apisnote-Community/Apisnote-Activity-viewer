@@ -22,7 +22,7 @@ from tkinter import messagebox
 
 
 ####################################################
-folder = 'C:/Users/t-takizawa/Documents/Python/exe/venv/'
+folder = 'C:/Users/XXX/Documents/Python/'
 filelist = 'list.txt'
 tincmin = '20'
 stime = '10/28/2020 at 07:00PM'
