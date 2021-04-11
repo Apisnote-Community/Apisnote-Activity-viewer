@@ -4,14 +4,14 @@ Apisnote-Acitivity-viewer is a tool to visualize Apisnote Activity (Frequency of
 Latest version is aav4. 
 
 
-##File Summary
+## File Summary
 
   aav4.exe   :Main exe File
   
   aav4.py    :Python file converted to exe file using PyInstaller 
 
 
-##Python Version for aav4.py
+## Python Version for aav4.py
 
   Python 3.7
   
@@ -23,13 +23,13 @@ Apisnote Acitivity viewer は Apisnoteの各worksheetよりダウンロードし
 最新バージョンはaav4です。
 
 
-##ファイル概要
+## ファイル概要
 
   aav4.exe   :aav4.pyから作成されたexeファイル。
 
   aav4_defpart.py : PythonでApisnote-Activity-viewerを使いたい方向け。
 
 
-##Python Version for aav4.py
+## Python Version for aav4.py
 
   Python 3.7
