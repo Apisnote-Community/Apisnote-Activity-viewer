@@ -7,7 +7,6 @@ Latest version is aav4.
 [File Summary]
 
   aav4.exe   :Main exe File
-
   aav4.py    :Python file converted to exe file using PyInstaller 
 
 
