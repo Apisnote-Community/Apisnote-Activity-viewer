@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['aav5.py'],
-             pathex=['C:\\Users\\t-takizawa\\Documents\\Python\\exe\\210509venv'],
+             pathex=['C:\\Users\\t-takizawa\\Documents\\Python\\exe\\210516venv'],
              binaries=[],
              datas=[],
              hiddenimports=[],
