@@ -89,13 +89,13 @@ def makeActivityArray(d,st,et,tincmin=10,folder="",account="all",action="all",co
         
         del d1[0]
         d1[len(d1)-1].append('')
-    
-        dt = np.array(d1).T
-        accountlist = dt[1]
-        actionlist = dt[2]
-        colorlist = dt[4]
-        tm = dt[5]
-        tlist = [datetime.datetime.strptime(x, '%m/%d/%Y at %I:%M%p') for x in tm]
+        dt = pd.DataFrame(d1).T
+        dt = dt.replace({None:""})
+        accountlist = dt.iloc[1,:]
+        actionlist = dt.iloc[2,:]
+        colorlist = dt.iloc[4,:]
+        tm = dt.iloc[5,:]
+        tlist = [datetime.datetime.strptime(x, '%m/%d/%Y at %I:%M%p') for x in tm if x != ""]
         l = len(tm)
         
         # 平均Activity頻度 avact を計算する

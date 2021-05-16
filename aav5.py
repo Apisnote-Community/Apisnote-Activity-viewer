@@ -5,14 +5,22 @@ Created on Fri Apr  9 19:06:02 2021
 """
 import codecs
 import csv
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 import datetime
 import ApisnoteActivityDF as aav
 import tkinter
 
-def drawaa(folder,filename,stime,etime,tincmin,color,action,fsx,fsy):
+def drawaa(folder,filelist,stime,etime,tincmin,color,action,fsx,fsy):
     # データ読み込み: APISNOTEのCSVファイル名のリスト
+    filename = folder + filelist
+    if os.path.isfile(filename):
+        print('OK')    
+    else:
+        folder = folder + '/'
+        filename = folder + '/' + filelist
+        
     with codecs.open(filename, 'r', 'utf-8') as f:
         reader = csv.reader(f)
         d = [row for row in reader]
