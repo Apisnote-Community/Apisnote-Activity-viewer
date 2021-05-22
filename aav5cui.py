@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import datetime
 import ApisnoteActivityDF as aav
 ############################################
-path = "C:/XXX/YYY"
+path = "C:/XXXXX/2020-10-28G19.20.02/"
 stime = '4/14/2021 at 07:00PM'
 etime = '4/25/2021 at 10:00PM'
 filelist = "list.txt"

@@ -52,12 +52,13 @@ def makeActivityArray(d,st,et,tincmin=10,folder="",account="all",action="all",co
     
     if action == "all":
         action = ["add","move","edit","update","link","delete"]
-
-    if color == "all":
-        color = ["white","light grey","yellow","green","light blue","light red","grey","brown","orange","blue","purple","red"]
+    
+    colorIn = color
+    if colorIn == "all":
+        colorIn = ["white","light grey","yellow","green","light blue","light red","grey","brown","orange","blue","purple","red"]
     
     d = [x for x in d if x != []]
-    print(d)
+    #print(d)
     
     tincmin = int(tincmin)
     tminc = datetime.timedelta(minutes=tincmin) #平均Activity頻度を計算する時間間隔（10分の平均）
@@ -82,6 +83,7 @@ def makeActivityArray(d,st,et,tincmin=10,folder="",account="all",action="all",co
     # データ読み込み: APISNOTEのCSVファイルの読み込み
     i = 0
     for x in d:
+        print("file",x)
         fn = folder + x[0]
         with codecs.open(fn, 'r', 'utf-8') as f1:
             reader = csv.reader(f1)
@@ -97,6 +99,16 @@ def makeActivityArray(d,st,et,tincmin=10,folder="",account="all",action="all",co
         tm = dt.iloc[5,:]
         tlist = [datetime.datetime.strptime(x, '%m/%d/%Y at %I:%M%p') for x in tm if x != ""]
         l = len(tm)
+        
+        # Apply color in list.txt
+        if len(x)>1:
+            lx = len(x) - 1
+            color = []
+            for ci in range(lx):
+                color.append(x[ci+1])
+        else:
+            color = colorIn
+        print(color)
         
         # 平均Activity頻度 avact を計算する
         j = 0
@@ -132,9 +144,11 @@ def makeActivityArray(d,st,et,tincmin=10,folder="",account="all",action="all",co
         # act の準備
         while j < ntinc:
             a = [avact[m] for m,x in tm4 if t[j] <= x and x < t[j+1]]
+            #print(j,t[j])
             if a == []:
                 act[i][j] = 0
             else:
+                
                 act[i][j] = max(a)
             j += 1
         i += 1
@@ -142,18 +156,26 @@ def makeActivityArray(d,st,et,tincmin=10,folder="",account="all",action="all",co
     # zero activity の削除
     tact = np.array(act).T
     if zeroact != False:
-        i = 0
-        while i < len(tact):
-            if sum(tact[i]) == 0:
-                tact = np.delete(tact, i, 0)
-                del t1[i]
-                i = i - 1
-            i += 1
+        ai = 0
+        while ai < len(tact):
+            if sum(tact[ai]) == 0:
+                tact = np.delete(tact, ai, 0)
+                del t1[ai]
+                ai = ai - 1
+            ai += 1
     
     csvf = []
     for x in d:
-        y = x[0].encode('shift_jis')
-        csvf.append(y.decode('shift_jis'))
+        y = x[0].encode('utf-8')
+        y = y.decode('utf-8')
+        lx = len(x)-1
+        if len(x)>1:
+            for cj in range(lx):
+                if cj == 0:
+                    y = y + "\n" + x[cj+1].encode('utf-8').decode('utf-8')
+                else:
+                    y = y + "," + x[cj+1].encode('utf-8').decode('utf-8')
+        csvf.append(y)
     ttact = np.array(tact).T
     df = pd.DataFrame(data=ttact, index=csvf, columns=t1)
     return df
