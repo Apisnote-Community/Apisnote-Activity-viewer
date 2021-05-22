@@ -20,6 +20,7 @@ Latest version is aav5 (only in python file).
 2) Save APISNOTE csv files and list.txt in the same folder.
 3) list.txt should be a list of file names. Put each file name in a new line. If you want to set colors of note to be visualized, add color name with ",".
    ex)  xxx.csv
+   
         yyy.csv,yellow,blue
 
 # Apisnote 活動可視化ツール(aav)
@@ -40,5 +41,6 @@ Apisnote Acitivity viewer は Apisnoteの各worksheetよりダウンロードし
 2) csvファイルとlist.txtをpython/exeファイルと同じディレクトリに保存。
 3) list.txt にファイル名を列挙。１ファイルごとに改行して記入。ノートの色指定を行う場合は，csv名のあとに",yellow"などと追記する．
    ex)  xxx.csv
+   
         yyy.csv,yellow,blue
 4) 実行
