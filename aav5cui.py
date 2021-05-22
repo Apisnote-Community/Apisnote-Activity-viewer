@@ -11,13 +11,13 @@ import matplotlib.pyplot as plt
 import datetime
 import ApisnoteActivityDF as aav
 ############################################
-path = "C:/XXXXX/2020-10-28G19.20.02/"
-stime = '4/14/2021 at 07:00PM'
-etime = '4/25/2021 at 10:00PM'
+path = "TestFiles/"
+stime = '4/21/2021 at 07:00AM'
+etime = '4/21/2021 at 10:00AM'
 filelist = "list.txt"
 fsx = 8
 fsy = 2.5
-tincmin = 20
+tincmin = 10
 ############################################
 # データ読み込み: APISNOTEのCSVファイル名のリスト
 filename = path + filelist
