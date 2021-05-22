@@ -6,7 +6,9 @@ Latest version is aav5 (only in python file).
 
 ## File Summary
   aav5.exe   :Main exe File
+  
   aav5.py    :New version of Python file converted to exe file using PyInstaller 
+  
   ApisnoteActivityDF.py :Python file for aav5.py.
 
 
@@ -28,8 +30,10 @@ Apisnote Acitivity viewer は Apisnoteの各worksheetよりダウンロードし
 
 ## ファイル概要
   aav5.exe   :aav5.pyから作成されたexeファイル。
-  aav5.py    :最新のApisnote-Acitivity-viewer. ノートの色、アクティビティの種類を選択することが可能に。
-  ApisnoteActivityDF.py :aav5.py 用の関数。
+ 
+ aav5.py    :最新のApisnote-Acitivity-viewer. ノートの色、アクティビティの種類を選択することが可能に。
+ 
+ ApisnoteActivityDF.py :aav5.py 用の関数。
 
 ## 手順
 1) "ApisnoteActivityDF.py"は"aav5.py"と同じディレクトリに保存(exe版の場合不要）。
