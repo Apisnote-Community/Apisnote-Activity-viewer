@@ -52,4 +52,4 @@ Apisnote Acitivity viewer は Apisnoteの各worksheetよりダウンロードし
 4) 実行
 
 ## Quick Startはこちらから
-https://github.com/Apisnote-Community/Apisnote-Activity-viewer
+https://qiita.com/ApisnoteDevelopers/items/1ec7fb9886af71f991d1
