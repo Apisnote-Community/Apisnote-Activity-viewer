@@ -50,3 +50,6 @@ Apisnote Acitivity viewer は Apisnoteの各worksheetよりダウンロードし
       
       yyy.csv,yellow,blue
 4) 実行
+
+## Quick Startはこちらから
+https://github.com/Apisnote-Community/Apisnote-Activity-viewer
