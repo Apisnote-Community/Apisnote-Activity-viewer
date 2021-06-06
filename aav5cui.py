@@ -12,7 +12,7 @@ import aav_heatmap as hp
 import aav_processmap as pp
 #%%
 ############################################
-path = "C:/Users/takiz/Documents/Working/i.school/2105_ws1aav5/D"
+path = "C:/APISNOTE/D"
 stime = '04/13/2021 at 07:00PM'
 etime = '04/30/2021 at 10:00PM'
 filelist = "list.txt"
