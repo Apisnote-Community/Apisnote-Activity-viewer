@@ -15,6 +15,38 @@ import aav_processmap as pp
 import tkinter
 
 def drawaa(folder,filelist,stime,etime,tincmin,color,action,fsx,fsy):
+    """
+    Function for aav5 GUI.
+    
+    Parameters
+    ----------
+    folder : str
+        Path where csv files downloaded / csvファイルがあるディレクトリ
+    filelist : str
+        File name of a csv file list / csvファイルの一覧を記載したtxtファイル
+    stime : str
+        Starting Time / 開始時間．開始時間と終了時間の間のみ可視化される．
+    etime : TYPE
+        End Time
+    tincmin : int
+        Time(min) for calclulating mean activity volume
+        平均アクティビティ量を計算する時間(分). The default is 10.
+    color : list
+        Color list. The default is "all" (all colors).
+          ex) ['light red','brown']
+    action : list
+        Action list. The default is "all" (all actions).
+          ex) ['link','edit']
+    fsx : float
+        Figure size for x direction / x方向図の大きさ
+    fsy : float
+        Figure size for y direction / y方向図の大きさ
+
+    Returns
+    -------
+    None.
+
+    """
     # データ読み込み: APISNOTEのCSVファイル名のリスト
     filename = folder + filelist
     if os.path.isfile(filename):
