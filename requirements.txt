@@ -3,3 +3,5 @@ Pyton packages need to execute python file (aav5.py)
 *numpy
 *matplotlib
 *ApisnoteActivityDF.py
+*aav_heatmap.py
+*aav_process.py

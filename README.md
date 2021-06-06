@@ -9,7 +9,11 @@ Latest version is aav5 (only in python file).
   
   aav5.py    :New version of Python file converted to exe file using PyInstaller 
   
-  ApisnoteActivityDF.py :Python file for aav5.py.
+  ApisnoteActivityDF.py :Python File. Make APISNOTE activity DataFrame for aav5.py
+
+  aav_heatmap.py　:Python File. Show heatmap for aav5.py
+
+  aav_processmap.py :Python File. Show processmap for aav5.py
 
 
 ## Python Version for aav5.py
@@ -37,7 +41,11 @@ Apisnote Acitivity viewer は Apisnoteの各worksheetよりダウンロードし
  
   aav5.py    :最新のApisnote-Acitivity-viewer. ノートの色、アクティビティの種類を選択することが可能に。
  
-  ApisnoteActivityDF.py :aav5.py 用の関数。
+  ApisnoteActivityDF.py :aav5.py 用の関数。APISNOTEの活動量を記録したDataFrameを出力。
+
+  aav_heatmap.py　:aav5.py 用の関数。heatmapを描画する。
+
+  aav_processmap.py :aav5.py 用の関数。processmap(折れ線グラフ）を描画する。
 
 ## 手順
 1) "ApisnoteActivityDF.py"は"aav5.py"と同じディレクトリに保存(exe版の場合不要）。
