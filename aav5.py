@@ -10,6 +10,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import datetime
 import ApisnoteActivityDF as aav
+import aav_heatmap as hp
+import aav_processmap as pp
 import tkinter
 
 def drawaa(folder,filelist,stime,etime,tincmin,color,action,fsx,fsy):
@@ -26,26 +28,14 @@ def drawaa(folder,filelist,stime,etime,tincmin,color,action,fsx,fsy):
         d = [row for row in reader]
     st = datetime.datetime.strptime(stime, '%m/%d/%Y at %I:%M%p')
     et = datetime.datetime.strptime(etime, '%m/%d/%Y at %I:%M%p')
-    
-    
+      
     # import makeAcitivityArray.py
     print(d,st,et,tincmin,)
     df = aav.makeActivityArray(d,st,et,tincmin=tincmin,folder=folder,action=action,color=color)
     
-    
-    # Plot Figure #############################
-    font = {'family':'Yu Gothic'}
-    plt.rc('font', **font)
-    index = df.index
-    index = [s.replace('.csv','') for s in index]
-    fig, ax = plt.subplots(figsize=(int(fsx), int(fsy)))
-    heatmap = plt.pcolor(df,cmap = "Oranges")
-    ax.set_ylim(len(index), 0)
-    dff = aav.xAxisIndex(df)
-    plt.xticks(np.arange(0.5, len(dff.columns), 1), dff.columns.values,rotation=45,ha="right")
-    print(dff.columns)
-    plt.yticks(np.arange(0.5, len(df.index), 1), index)
-    plt.show()
+    # Plot Figure
+    pp.processmap(df, fsx, fsy)
+    hp.heatmap(df, fsx, fsy)
     return
 
 ##############################################################

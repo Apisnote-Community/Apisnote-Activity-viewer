@@ -6,20 +6,24 @@ Created on Fri Apr  9 19:06:02 2021
 import codecs
 import csv
 import os
-import numpy as np
-import matplotlib.pyplot as plt
 import datetime
 import ApisnoteActivityDF as aav
+import aav_heatmap as hp
+import aav_processmap as pp
+#%%
 ############################################
-path = "TestFiles/"
-stime = '4/21/2021 at 07:00AM'
-etime = '4/21/2021 at 10:00AM'
+path = "C:/Users/takiz/Documents/Working/i.school/2105_ws1aav5/D"
+stime = '04/13/2021 at 07:00PM'
+etime = '04/30/2021 at 10:00PM'
 filelist = "list.txt"
-fsx = 8
-fsy = 2.5
-tincmin = 10
+fsx = 20
+fsy = 5
+tincmin = 20
+action = ["add","update"]  # or just "all"
 ############################################
 # データ読み込み: APISNOTEのCSVファイル名のリスト
+
+
 filename = path + filelist
 if os.path.isfile(filename):
     print('OK')    
@@ -34,20 +38,10 @@ et = datetime.datetime.strptime(etime, '%m/%d/%Y at %I:%M%p')
 
 
 # import makeAcitivityArray.py
-df = aav.makeActivityArray(d,st,et,tincmin=tincmin,folder=path,action="all")
+df = aav.makeActivityArray(d,st,et,tincmin=tincmin,folder=path,action=action)
 
-
-# Plot Figure #############################
-font = {'family':'Yu Gothic'}
-plt.rc('font', **font)
-index = df.index
-index = [s.replace('.csv','') for s in index]
-fig, ax = plt.subplots(figsize=(int(fsx), int(fsy)))
-heatmap = plt.pcolor(df,cmap = "Oranges")
-
-ax.set_ylim(len(index), 0)
-dff = aav.xAxisIndex(df)
 #%%
-plt.xticks(np.arange(0.5, len(dff.columns), 1), dff.columns.values,rotation=45,ha="right")
-plt.yticks(np.arange(0.5, len(df.index), 1), index)
-plt.show()
+# Plot Figure #############################
+pp.processmap(df, fsx, fsy)
+hp.heatmap(df, fsx, fsy)
+

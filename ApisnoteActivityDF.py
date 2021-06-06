@@ -83,7 +83,7 @@ def makeActivityArray(d,st,et,tincmin=10,folder="",account="all",action="all",co
     # データ読み込み: APISNOTEのCSVファイルの読み込み
     i = 0
     for x in d:
-        print("file",x)
+        print("file read:",x)
         fn = folder + x[0]
         with codecs.open(fn, 'r', 'utf-8') as f1:
             reader = csv.reader(f1)
@@ -108,7 +108,7 @@ def makeActivityArray(d,st,et,tincmin=10,folder="",account="all",action="all",co
                 color.append(x[ci+1])
         else:
             color = colorIn
-        print(color)
+        print("  color:",color)
         
         # 平均Activity頻度 avact を計算する
         j = 0
