@@ -6,15 +6,14 @@ Created on Fri Apr  9 19:06:02 2021
 import codecs
 import csv
 import os
-import numpy as np
-import matplotlib.pyplot as plt
 import datetime
 import ApisnoteActivityDF as aav
+import ApisnoteActivityDF_longcsvf as aavl
 import aav_heatmap as hp
 import aav_processmap as pp
 import tkinter
 
-def drawaa(folder,filelist,stime,etime,tincmin,color,action,fsx,fsy):
+def drawaa(path,filelist,stime,etime,tincmin,color,action,fsx,fsy):
     """
     Function for aav5 GUI.
     
@@ -48,22 +47,33 @@ def drawaa(folder,filelist,stime,etime,tincmin,color,action,fsx,fsy):
 
     """
     # データ読み込み: APISNOTEのCSVファイル名のリスト
-    filename = folder + filelist
-    if os.path.isfile(filename):
-        print('OK')    
+    if filelist !="":
+        filename = path + filelist
+        mode = "severalcsv"
+        if os.path.isfile(filename):
+            print('OK')    
+        else:
+            path = path + '/'
+            filename = path + filelist
+        with codecs.open(filename, 'r', 'utf-8') as f:
+            reader = csv.reader(f)
+            d = [row for row in reader]
+    
     else:
-        folder = folder + '/'
-        filename = folder + '/' + filelist
+        csvlist = os.listdir(path)
+        mode = "onecsv"
+        d = [[l] for l in csvlist if ".csv" in l ]
         
-    with codecs.open(filename, 'r', 'utf-8') as f:
-        reader = csv.reader(f)
-        d = [row for row in reader]
     st = datetime.datetime.strptime(stime, '%m/%d/%Y at %I:%M%p')
     et = datetime.datetime.strptime(etime, '%m/%d/%Y at %I:%M%p')
       
     # import makeAcitivityArray.py
     print(d,st,et,tincmin,)
-    df = aav.makeActivityArray(d,st,et,tincmin=tincmin,folder=folder,action=action,color=color)
+    # import makeAcitivityArray.py
+    if mode == "severalcsv":
+        df = aav.makeActivityArray(d,st,et,tincmin=tincmin,folder=path,action=action)
+    else:
+        df = aavl.makeActivityArrayL(d,st,et,tincmin=tincmin,folder=path,action=action)
     
     # Plot Figure
     pp.processmap(df, fsx, fsy)
@@ -91,7 +101,7 @@ EditBox1.place(x=140, y=40)
 Static3 = tkinter.Label(text=u'Ex) D:\\APISNOTE\\')
 Static3.place(x=280, y=40)
 
-Static4 = tkinter.Label(text=u'CSV file list')
+Static4 = tkinter.Label(text=u'CSV file list*')
 Static4.place(x=20, y=65)
 
 EditBox2 = tkinter.Entry()
