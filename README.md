@@ -21,7 +21,7 @@ Latest version is aav6 (only in python file).
 
 ## Steps for aav5
 1) Save "ApisnoteActivityDF.py" in the same folder of "aav6.py"
-2) Save APISNOTE csv files and list.txt in the same folder.
+2) Save APISNOTE csv files and list.txt in the same folder (No need to set list.txt when you use whole csv Data).
 3) list.txt should be a list of file names. Put each file name in a new line. If you want to set colors of note to be visualized, add color name with ",".
 
    ex) In the list.txt
