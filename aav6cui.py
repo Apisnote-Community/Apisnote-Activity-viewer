@@ -13,7 +13,7 @@ import aav_heatmap as hp
 import aav_processmap as pp
 #%%
 ############################################
-path = r'\\192.168.0.141\Data\20WS8\2020-10-14B19.11.31i.school20WS8\ApisnoteData'
+path = r'C:\....\Data\ApisnoteData'
 stime = '10/14/2020 at 07:00PM'
 etime = '10/14/2020 at 10:00PM'
 filelist = ""
