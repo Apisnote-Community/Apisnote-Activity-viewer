@@ -147,6 +147,8 @@ def makeActivityArrayL(d,st,et,tincmin=10,folder="",account="all",action="all",c
             nact = np.zeros_like(nact)
             tm2 = tm2 + tminc
             j += 1
+    else:
+        print("stが範囲外です / st is out of range")
     #%%
     j=0
     
@@ -157,11 +159,11 @@ def makeActivityArrayL(d,st,et,tincmin=10,folder="",account="all",action="all",c
     if Lc_avact >=ntinc:
         act = avact[:,1:ntinc+1]
     else:
-        diff = ntinc - Lc_avact
+        diff = ntinc - Lc_avact + 1
         addarray = np.zeros([Li_avact,diff]).reshape([Li_avact,diff])
         avact = np.append(avact,addarray,axis=1)
         act = avact[:,1:ntinc+1]
-        
+    #print(ntinc,np.size(act,axis=1),len(t1))
     
     #%%
     # zero activity の削除

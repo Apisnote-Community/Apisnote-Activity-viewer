@@ -13,9 +13,9 @@ import aav_heatmap as hp
 import aav_processmap as pp
 #%%
 ############################################
-path = r'C:\....\Data\ApisnoteData'
-stime = '10/14/2020 at 07:00PM'
-etime = '10/14/2020 at 10:00PM'
+path = r'C:\XXX\WS12'
+stime = '08/11/2021 at 07:00AM'
+etime = '08/12/2021 at 10:00PM'
 filelist = ""
 fsx = 10
 fsy = 5
