@@ -86,7 +86,7 @@ def drawaa(path,filelist,stime,etime,tincmin,color,action,fsx,fsy):
 
 root = tkinter.Tk()
 root.title(u"APISNOTE Activity Viewer")
-root.geometry("440x250")
+root.geometry("440x300")
 
 #ラベル
 Static1 = tkinter.Label(text=u'APISNOTE Activity Viewer')
@@ -164,6 +164,10 @@ EditBox6.place(x=140, y=215)
 EditBox7 = tkinter.Entry(width=9)
 EditBox7.insert(tkinter.END,"9")
 EditBox7.place(x=205, y=215)
+
+Static11 = tkinter.Label(text=u'*No need to fill out when all-worksheets csv is downloaded')
+Static11.place(x=20, y=265)
+
 
 
 #ボタン
